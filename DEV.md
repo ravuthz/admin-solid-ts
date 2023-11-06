@@ -35,3 +35,9 @@
    bun add -D daisyui@latest
    git add . && git commit -m "Add DaisyUI plugin for TailwindCSS"
    ```
+
+## Screenshots
+<img width="1511" alt="dark-theme" src="https://github.com/ravuthz/admin-solid-ts/assets/11207890/1fc3d012-a8ae-4ce1-bf85-f93fdbd55424">
+<img width="1511" alt="light-theme" src="https://github.com/ravuthz/admin-solid-ts/assets/11207890/10f85c4e-ddbb-4341-9da0-bfcc505e539d">
+
+
