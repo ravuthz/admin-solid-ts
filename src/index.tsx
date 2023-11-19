@@ -4,12 +4,15 @@ import { Router } from "@solidjs/router";
 
 import "./index.css";
 import App from "./App";
+import { StoreProvider } from "./stores";
 
 render(
   () => (
-    <Router>
-      <App />
-    </Router>
+    <StoreProvider>
+      <Router>
+        <App />
+      </Router>
+    </StoreProvider>
   ),
   document.getElementById("root")!
 );

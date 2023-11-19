@@ -1,24 +1,16 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal } from "solid-js";
 
 function ToggleDarkMode() {
   const [isDarkMode, setIsDarkMode] = createSignal(false);
 
   const toggleTheme = (e: Event) => {
     const isDark = (e.target as HTMLInputElement).checked;
-
     setIsDarkMode(isDark);
-
-    console.log("toggleTheme", isDark);
-
     window.document.documentElement.setAttribute(
       "data-theme",
-      isDarkMode() ? "dark" : "aqua"
+      isDark ? "dark" : "aqua"
     );
   };
-
-  onMount(() => {
-    console.log("isDarkMode: ", isDarkMode());
-  });
 
   return (
     <div>

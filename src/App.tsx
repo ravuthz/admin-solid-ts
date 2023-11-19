@@ -1,5 +1,7 @@
-import { lazy } from "solid-js";
+import { Suspense, lazy } from "solid-js";
 import { A, useRoutes } from "@solidjs/router";
+
+import Loading from "./components/Loading";
 // import { A, Route, Routes } from "@solidjs/router";
 
 // import Home from "./pages/Home";
@@ -28,9 +30,7 @@ const routes = [
   },
   {
     path: "/projects",
-    component: () => (
-      <h1 class="text-center text-3xl py-10 font-bold">Projects</h1>
-    ),
+    component: lazy(() => import("./pages/Project")),
   },
   {
     path: "*",
@@ -66,17 +66,19 @@ const App = () => {
 
   return (
     <>
-      <div class="container mx-auto">
-        <AppMenus />
-        <AppRoutes />
-        {/* <Routes>
+      <Suspense fallback={<Loading loading />}>
+        <div class="container mx-auto">
+          <AppMenus />
+          <AppRoutes />
+          {/* <Routes>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/projects" element={<div>Projects</div>} />
           <Route path="*" component={NotFound} />
         </Routes> */}
-      </div>
+        </div>
+      </Suspense>
     </>
   );
 };
